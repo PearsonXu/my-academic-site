@@ -289,7 +289,7 @@ A: Open the `.md` file in VS Code, edit, save, then `git add -A && git commit -m
 
 ---
 
-*Written August 2025. If you follow along and finish, feel free to email me your website.*
+*Written August 2026. If you follow along and finish, feel free to share your website with me.*
 
 </div>
 
@@ -570,7 +570,7 @@ A：在 VS Code 里打开对应的 `.md` 文件，改完保存，然后 `git add
 
 ---
 
-*写于 2025 年 8 月。如果你跟着做完了，欢迎给我发邮件分享你的网站。*
+*写于 2026 年 8 月。如果你跟着做完了，欢迎给我分享你的网站。*
 
 </div>
 
