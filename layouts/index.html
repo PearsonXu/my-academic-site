@@ -1,0 +1,100 @@
+{{- define "main" }}
+
+<!-- ================= HERO ================= -->
+<section class="zx-hero">
+  <div class="zx-hero-text">
+    <span class="kicker">Computational Mathematics · UofSC</span>
+    <h1>Zhaoqing Xu<br>on <span class="zx-hl">numerical methods<svg viewBox="0 0 300 12" preserveAspectRatio="none"><path d="M3 9 C 60 2, 150 2, 297 7"/></svg></span></h1>
+    <p class="zx-lede">Ph.D. candidate and instructor of record at the University of South Carolina, building fast and reliable algorithms for partial differential equations and scientific computing.</p>
+    <nav class="zx-links">
+      <a class="zx-link" href="{{ "about/" | absURL }}">About <span class="zx-arrow">→</span></a>
+      <a class="zx-link" href="{{ "research/" | absURL }}">Research <span class="zx-arrow">→</span></a>
+      <a class="zx-link" href="{{ "teaching/" | absURL }}">Teaching <span class="zx-arrow">→</span></a>
+      <a class="zx-link" href="{{ "cv.pdf" | absURL }}">CV <span class="zx-arrow">↗</span></a>
+    </nav>
+  </div>
+
+  <!-- Animated contour figure: the "research artifact" -->
+  <figure class="zx-figure" aria-hidden="true">
+    <svg viewBox="0 0 320 260">
+      <!-- contour rings -->
+      <ellipse class="zx-contour faint" cx="150" cy="130" rx="130" ry="105"/>
+      <ellipse class="zx-contour" cx="150" cy="130" rx="104" ry="82"/>
+      <ellipse class="zx-contour alt" cx="150" cy="130" rx="78" ry="60"/>
+      <ellipse class="zx-contour" cx="150" cy="130" rx="52" ry="39"/>
+      <ellipse class="zx-contour alt faint" cx="150" cy="130" rx="27" ry="19"/>
+      <!-- gradient-descent flow line -->
+      <path class="zx-flow" d="M28 220 C 90 200, 110 150, 150 130"/>
+      <path class="zx-flow" style="animation-delay:-3s" d="M300 40 C 240 60, 200 100, 150 130"/>
+      <!-- optimum node -->
+      <circle class="zx-node" cx="150" cy="130" r="5"/>
+      <!-- axis ticks -->
+      <g stroke="currentColor" opacity="0.25" stroke-width="1">
+        <line x1="10" y1="250" x2="310" y2="250"/>
+        <line x1="10" y1="10" x2="10" y2="250"/>
+      </g>
+    </svg>
+    <figcaption class="zx-figcap"><span><b>fig. 01</b> — level sets & descent</span><span>∇f(x*) = 0</span></figcaption>
+  </figure>
+</section>
+
+<!-- ================= AT A GLANCE ================= -->
+<section class="zx-glance reveal">
+  <ul>
+    <li><span class="zx-gk">Position</span><strong>Ph.D. Candidate</strong> & Instructor of Record, University of South Carolina</li>
+    <li><span class="zx-gk">Focus</span><strong>Numerical PDE</strong>, scientific computing, optimization</li>
+    <li><span class="zx-gk">Currently</span>Developing <strong>adaptive solvers</strong> for multiscale problems</li>
+  </ul>
+</section>
+
+<!-- ================= SECTION MOSAIC ================= -->
+<section class="zx-sections">
+  <a class="zx-card featured reveal" href="{{ "research/" | absURL }}">
+    <span class="zx-cnum">01 / RESEARCH</span>
+    <h2>Research & Publications</h2>
+    <p>Algorithms and analysis for the numerical solution of partial differential equations — from theory to working code.</p>
+    <div class="zx-tags">
+      <span class="zx-tag">Numerical PDE</span>
+      <span class="zx-tag">Finite Elements</span>
+      <span class="zx-tag">Optimization</span>
+      <span class="zx-tag">Scientific Computing</span>
+    </div>
+    <span class="zx-cgo">View publications <span class="zx-arrow">→</span></span>
+  </a>
+
+  <a class="zx-card reveal" data-delay="1" href="{{ "teaching/" | absURL }}">
+    <span class="zx-cnum">02 / TEACHING</span>
+    <h2>Teaching</h2>
+    <p>Courses taught as instructor of record, with materials and notes.</p>
+    <span class="zx-cgo">View courses <span class="zx-arrow">→</span></span>
+  </a>
+
+  <a class="zx-card reveal" data-delay="2" href="{{ "writing/" | absURL }}">
+    <span class="zx-cnum">03 / WRITING</span>
+    <h2>Writing & Notes</h2>
+    <p>Essays, study notes, and records — in English and 中文.</p>
+    <span class="zx-cgo">Read posts <span class="zx-arrow">→</span></span>
+  </a>
+</section>
+
+<!-- ================= SCROLL REVEAL SCRIPT ================= -->
+<script>
+(function () {
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+{{- end }}{{/* end main */}}

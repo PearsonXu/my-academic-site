@@ -1,0 +1,902 @@
+/* ============================================================
+   ZHAOQING XU — ACADEMIC SITE
+   Design system: "Graph paper & contours"
+   Display: Fraunces · Body: Source Sans 3 · Accent: IBM Plex Mono
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. COLOR THEMES — 五套配色（右下角切换器实时预览）
+   ------------------------------------------------------------ */
+
+:root,
+[data-theme="ocean"] {
+  --paper: #f5f8fa;
+  --card: #ffffff;
+  --ink: #14304f;
+  --ink-soft: #4a637f;
+  --accent: #0e7c86;
+  --accent-2: #c98a12;
+  --line: rgba(20, 48, 79, 0.14);
+  --grid: rgba(20, 48, 79, 0.055);
+  --wash: rgba(14, 124, 134, 0.09);
+  --wash-2: rgba(201, 138, 18, 0.07);
+  --shadow: 0 12px 32px rgba(20, 48, 79, 0.12);
+
+  /* PaperMod internals */
+  --theme: #f5f8fa;
+  --entry: #ffffff;
+  --primary: #14304f;
+  --secondary: #4a637f;
+  --tertiary: rgba(20, 48, 79, 0.14);
+  --content: #2b425d;
+  --hljs-bg: #14304f;
+  --code-bg: #eef2f5;
+  --border: rgba(20, 48, 79, 0.14);
+}
+
+[data-theme="forest"] {
+  --paper: #f3f8f3;
+  --card: #ffffff;
+  --ink: #1b3a2c;
+  --ink-soft: #4c6b5a;
+  --accent: #2c7a4b;
+  --accent-2: #b07d1f;
+  --line: rgba(27, 58, 44, 0.15);
+  --grid: rgba(27, 58, 44, 0.06);
+  --wash: rgba(44, 122, 75, 0.10);
+  --wash-2: rgba(176, 125, 31, 0.07);
+  --shadow: 0 12px 32px rgba(27, 58, 44, 0.12);
+
+  --theme: #f3f8f3;
+  --entry: #ffffff;
+  --primary: #1b3a2c;
+  --secondary: #4c6b5a;
+  --tertiary: rgba(27, 58, 44, 0.15);
+  --content: #2e4a3c;
+  --hljs-bg: #1b3a2c;
+  --code-bg: #e9f1ea;
+  --border: rgba(27, 58, 44, 0.15);
+}
+
+[data-theme="plum"] {
+  --paper: #f8f5fa;
+  --card: #ffffff;
+  --ink: #38245c;
+  --ink-soft: #6b5790;
+  --accent: #7a4bb5;
+  --accent-2: #d07b1a;
+  --line: rgba(56, 36, 92, 0.15);
+  --grid: rgba(56, 36, 92, 0.06);
+  --wash: rgba(122, 75, 181, 0.10);
+  --wash-2: rgba(208, 123, 26, 0.07);
+  --shadow: 0 12px 32px rgba(56, 36, 92, 0.13);
+
+  --theme: #f8f5fa;
+  --entry: #ffffff;
+  --primary: #38245c;
+  --secondary: #6b5790;
+  --tertiary: rgba(56, 36, 92, 0.15);
+  --content: #463468;
+  --hljs-bg: #38245c;
+  --code-bg: #f0eaf6;
+  --border: rgba(56, 36, 92, 0.15);
+}
+
+[data-theme="crimson"] {
+  --paper: #fbf6f4;
+  --card: #ffffff;
+  --ink: #54221d;
+  --ink-soft: #8a5a52;
+  --accent: #b23a30;
+  --accent-2: #c07d1a;
+  --line: rgba(84, 34, 29, 0.15);
+  --grid: rgba(84, 34, 29, 0.06);
+  --wash: rgba(178, 58, 48, 0.09);
+  --wash-2: rgba(192, 125, 26, 0.07);
+  --shadow: 0 12px 32px rgba(84, 34, 29, 0.13);
+
+  --theme: #fbf6f4;
+  --entry: #ffffff;
+  --primary: #54221d;
+  --secondary: #8a5a52;
+  --tertiary: rgba(84, 34, 29, 0.15);
+  --content: #5f332c;
+  --hljs-bg: #54221d;
+  --code-bg: #f6ece8;
+  --border: rgba(84, 34, 29, 0.15);
+}
+
+[data-theme="midnight"] {
+  --paper: #0e1420;
+  --card: #161e2e;
+  --ink: #e8ecf4;
+  --ink-soft: #9aa7bd;
+  --accent: #e0a82e;
+  --accent-2: #43c6b8;
+  --line: rgba(232, 236, 244, 0.14);
+  --grid: rgba(232, 236, 244, 0.05);
+  --wash: rgba(224, 168, 46, 0.07);
+  --wash-2: rgba(67, 198, 184, 0.06);
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+
+  --theme: #0e1420;
+  --entry: #161e2e;
+  --primary: #e8ecf4;
+  --secondary: #9aa7bd;
+  --tertiary: rgba(232, 236, 244, 0.14);
+  --content: #c3ccdc;
+  --hljs-bg: #161e2e;
+  --code-bg: #1a2334;
+  --border: rgba(232, 236, 244, 0.14);
+}
+
+/* ------------------------------------------------------------
+   2. TYPE & BASE
+   ------------------------------------------------------------ */
+
+:root {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Source Sans 3", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--content);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  transition: background 0.5s var(--ease-out), color 0.5s var(--ease-out);
+}
+
+/* Layered ambient background: graph paper + two soft washes */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, black 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, black 30%, transparent 90%);
+  transition: background 0.5s var(--ease-out);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(600px 420px at 85% -5%, var(--wash), transparent 70%),
+    radial-gradient(520px 400px at -5% 30%, var(--wash-2), transparent 70%);
+  transition: background 0.5s var(--ease-out);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* Monospace kicker label — the site's signature detail */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kicker::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--accent);
+  display: inline-block;
+}
+
+/* ------------------------------------------------------------
+   3. HEADER
+   ------------------------------------------------------------ */
+
+.header {
+  background: color-mix(in srgb, var(--paper) 82%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: none !important;
+  transition: background 0.5s var(--ease-out);
+}
+
+.logo a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.logo a em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.menu a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  position: relative;
+  padding: 6px 2px;
+  transition: color 0.25s var(--ease-out);
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.menu a:hover {
+  color: var(--ink);
+}
+
+.menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ------------------------------------------------------------
+   4. HOMEPAGE HERO — asymmetric, opens with the subject
+   ------------------------------------------------------------ */
+
+.zx-hero {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 72px 24px 24px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.zx-hero-text .kicker {
+  animation: zx-rise 0.7s var(--ease-out) both;
+}
+
+.zx-hero h1 {
+  font-size: clamp(2.4rem, 5.4vw, 3.9rem);
+  font-weight: 600;
+  line-height: 1.08;
+  margin: 18px 0 20px;
+  animation: zx-rise 0.7s 0.08s var(--ease-out) both;
+}
+
+.zx-hero h1 .zx-hl {
+  color: var(--accent);
+  font-style: italic;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* hand-drawn underline stroke under the highlighted word */
+.zx-hero h1 .zx-hl svg {
+  position: absolute;
+  left: 0;
+  bottom: -0.18em;
+  width: 100%;
+  height: 0.32em;
+  overflow: visible;
+}
+
+.zx-hero h1 .zx-hl path {
+  fill: none;
+  stroke: var(--accent-2);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  animation: zx-draw 0.9s 0.7s var(--ease-out) forwards;
+}
+
+.zx-lede {
+  font-size: 1.12rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 0 0 28px;
+  animation: zx-rise 0.7s 0.16s var(--ease-out) both;
+}
+
+.zx-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  animation: zx-rise 0.7s 0.24s var(--ease-out) both;
+}
+
+.zx-link {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+}
+
+.zx-link .zx-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out);
+  color: var(--accent);
+}
+
+.zx-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.zx-link:hover .zx-arrow {
+  transform: translateX(5px);
+}
+
+/* Figure panel — animated contour plot, the "research artifact" */
+.zx-figure {
+  position: relative;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    var(--card);
+  background-size: 18px 18px, 18px 18px, auto;
+  padding: 18px 18px 12px;
+  box-shadow: var(--shadow);
+  transform: rotate(1.2deg);
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out), background 0.5s var(--ease-out);
+  animation: zx-rise 0.8s 0.2s var(--ease-out) both;
+}
+
+.zx-figure:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.16);
+}
+
+.zx-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.zx-figure .zx-contour {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  opacity: 0.85;
+}
+
+.zx-figure .zx-contour.alt {
+  stroke: var(--accent-2);
+}
+
+.zx-figure .zx-contour.faint {
+  opacity: 0.35;
+}
+
+.zx-figure .zx-flow {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 4 10;
+  animation: zx-flow 6s linear infinite;
+}
+
+.zx-figure .zx-node {
+  fill: var(--accent-2);
+}
+
+.zx-figcap {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--line);
+  margin-top: 12px;
+  padding-top: 9px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.zx-figcap b {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------
+   5. AT-A-GLANCE STRIP
+   ------------------------------------------------------------ */
+
+.zx-glance {
+  max-width: 960px;
+  margin: 44px auto 0;
+  padding: 0 24px;
+}
+
+.zx-glance ul {
+  list-style: none;
+  margin: 0;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.zx-glance li {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  padding-left: 14px;
+  border-left: 2px solid var(--accent-2);
+  transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+
+.zx-glance li:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.zx-glance .zx-gk {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.zx-glance strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------
+   6. SECTION CARDS — asymmetric 2-column mosaic
+   ------------------------------------------------------------ */
+
+.zx-sections {
+  max-width: 960px;
+  margin: 56px auto 40px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-rows: auto auto;
+  gap: 22px;
+}
+
+.zx-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 30px 30px 26px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out), background 0.5s var(--ease-out);
+}
+
+.zx-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.zx-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+
+.zx-card:hover::before {
+  transform: scaleY(1);
+}
+
+.zx-card .zx-cnum {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+.zx-card h2 {
+  font-size: 1.55rem;
+  font-weight: 600;
+  margin: 0;
+  transition: color 0.3s var(--ease-out);
+}
+
+.zx-card:hover h2 {
+  color: var(--accent);
+}
+
+.zx-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.zx-card .zx-cgo {
+  margin-top: auto;
+  padding-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.zx-card .zx-cgo .zx-arrow {
+  color: var(--accent);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.zx-card:hover .zx-cgo .zx-arrow {
+  transform: translateX(6px);
+}
+
+/* Featured card spans both rows */
+.zx-card.featured {
+  grid-row: span 2;
+  background:
+    radial-gradient(420px 260px at 100% 0%, var(--wash), transparent 70%),
+    var(--card);
+}
+
+.zx-card.featured h2 {
+  font-size: 2rem;
+}
+
+.zx-card .zx-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.zx-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  padding: 3px 10px;
+  border-radius: 999px;
+  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);
+}
+
+.zx-card:hover .zx-tag {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+/* ------------------------------------------------------------
+   7. SCROLL REVEAL
+   ------------------------------------------------------------ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal[data-delay="1"] { transition-delay: 0.1s; }
+.reveal[data-delay="2"] { transition-delay: 0.2s; }
+.reveal[data-delay="3"] { transition-delay: 0.3s; }
+
+/* ------------------------------------------------------------
+   8. CONTENT PAGES (about / research / teaching / posts)
+   ------------------------------------------------------------ */
+
+.main {
+  max-width: 960px;
+}
+
+.post-header {
+  animation: zx-rise 0.6s var(--ease-out) both;
+}
+
+.post-title {
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: 600;
+}
+
+.post-content {
+  font-size: 1.05rem;
+}
+
+.post-content h2 {
+  font-size: 1.6rem;
+  margin-top: 2.4em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-content h3 {
+  font-size: 1.22rem;
+  margin-top: 2em;
+}
+
+.post-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: border-color 0.25s var(--ease-out), color 0.25s var(--ease-out);
+}
+
+.post-content a:hover {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  padding: 12px 20px;
+  margin: 1.6em 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.post-content code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--code-bg);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* Publication / teaching list rows */
+.zx-list-row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 20px;
+  padding: 20px 4px;
+  border-bottom: 1px dashed var(--line);
+  transition: background 0.3s var(--ease-out), padding-left 0.3s var(--ease-out);
+}
+
+.zx-list-row:hover {
+  background: color-mix(in srgb, var(--accent) 4%, transparent);
+  padding-left: 14px;
+}
+
+.zx-list-row .zx-year {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  padding-top: 4px;
+}
+
+.zx-list-row h3 {
+  margin: 0 0 4px;
+  font-size: 1.12rem;
+}
+
+.zx-list-row .zx-meta {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* Post entries on list pages */
+.post-entry {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+  animation: zx-rise 0.55s var(--ease-out) both;
+}
+
+.post-entry:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+
+.entry-header h2.entry-title a {
+  color: var(--ink);
+  transition: color 0.25s var(--ease-out);
+}
+
+.post-entry:hover .entry-title a {
+  color: var(--accent);
+}
+
+.post-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem !important;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft) !important;
+}
+
+/* ------------------------------------------------------------
+   9. FOOTER
+   ------------------------------------------------------------ */
+
+.footer {
+  border-top: 1px solid var(--line);
+  background: transparent;
+}
+
+.footer a {
+  color: var(--accent);
+  transition: color 0.25s var(--ease-out);
+}
+
+.footer a:hover {
+  color: var(--accent-2);
+}
+
+/* ------------------------------------------------------------
+   10. THEME SWITCHER (fixed, bottom-right)
+   ------------------------------------------------------------ */
+
+.zx-themes {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  transition: background 0.5s var(--ease-out), border-color 0.5s var(--ease-out);
+}
+
+.zx-themes .zx-tlabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  min-width: 62px;
+  text-align: right;
+  transition: color 0.3s var(--ease-out);
+}
+
+.zx-tbtn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+}
+
+.zx-tbtn:hover {
+  transform: scale(1.25);
+}
+
+.zx-tbtn.active {
+  border-color: var(--ink);
+  transform: scale(1.12);
+}
+
+.zx-tbtn[data-set="ocean"]    { background: linear-gradient(135deg, #14304f 50%, #0e7c86 50%); }
+.zx-tbtn[data-set="forest"]   { background: linear-gradient(135deg, #1b3a2c 50%, #2c7a4b 50%); }
+.zx-tbtn[data-set="plum"]     { background: linear-gradient(135deg, #38245c 50%, #7a4bb5 50%); }
+.zx-tbtn[data-set="crimson"]  { background: linear-gradient(135deg, #54221d 50%, #b23a30 50%); }
+.zx-tbtn[data-set="midnight"] { background: linear-gradient(135deg, #0e1420 50%, #e0a82e 50%); }
+
+/* ------------------------------------------------------------
+   11. ANIMATIONS
+   ------------------------------------------------------------ */
+
+@keyframes zx-rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zx-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes zx-flow {
+  to { stroke-dashoffset: -140; }
+}
+
+/* ------------------------------------------------------------
+   12. RESPONSIVE
+   ------------------------------------------------------------ */
+
+@media (max-width: 820px) {
+  .zx-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-top: 48px;
+  }
+
+  .zx-figure {
+    max-width: 420px;
+    transform: rotate(0);
+  }
+
+  .zx-glance ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .zx-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .zx-card.featured {
+    grid-row: auto;
+  }
+
+  .zx-themes {
+    bottom: 14px;
+    right: 14px;
+  }
+
+  .zx-themes .zx-tlabel {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

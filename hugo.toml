@@ -8,19 +8,45 @@ theme = "PaperMod"
   author = "Zhaoqing Xu"
   description = "Ph.D. Candidate in Computational Mathematics at University of South Carolina"
   math = true
+  defaultTheme = "light"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowShareButtons = false
 
 [params.profileMode]
-  enabled = true
-  title = "Zhaoqing Xu"
-  subtitle = "Ph.D. Candidate & Instructor of Record, University of South Carolina"
-  imageUrl = ""
-  imageWidth = 150
-  imageHeight = 150
+  enabled = false
 
-  [[params.profileMode.buttons]]
-    name = "CV"
-    url = "/cv.pdf"
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 1
 
-  [[params.profileMode.buttons]]
-    name = "Teaching"
-    url = "/teaching/"
+[[menu.main]]
+  name = "Research"
+  url = "/research/"
+  weight = 2
+
+[[menu.main]]
+  name = "Teaching"
+  url = "/teaching/"
+  weight = 3
+
+[[menu.main]]
+  name = "Writing"
+  url = "/writing/"
+  weight = 4
+
+[[menu.main]]
+  name = "CV"
+  url = "/cv.pdf"
+  weight = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
