@@ -1,8 +1,9 @@
 ---
 title: "Hello, World — 写在网站上线时"
 date: 2025-07-31
-summary: "Why I built this site, what will live here, and a few notes on the design."
+description: "Why I built this site, what will live here, and a few notes on the design."
 tags: ["meta", "中文"]
+featured: true
 ---
 
 This site is now live at [www.zhaoqingxu.com](https://www.zhaoqingxu.com). It serves three purposes: a professional introduction, a home for my writing, and a record of what I am learning.
