@@ -14,6 +14,14 @@ I believe teaching mathematics is about making the abstract *visible* — connec
 <div class="zx-list-row">
   <span class="zx-year">2026</span>
   <div>
+    <h3>MATH 115 — Precalculus</h3>
+    <p class="zx-meta">Instructor · University of South Carolina · Fall 2026</p>
+  </div>
+</div>
+
+<div class="zx-list-row">
+  <span class="zx-year">2026</span>
+  <div>
     <h3>MATH 121 — Calculus for Business and Social Science</h3>
     <p class="zx-meta">Instructor · University of South Carolina · Spring 2026</p>
   </div>
@@ -30,7 +38,7 @@ I believe teaching mathematics is about making the abstract *visible* — connec
 <div class="zx-list-row">
   <span class="zx-year">2024</span>
   <div>
-    <h3>MATH 116 — Finite Mathematics</h3>
+    <h3>MATH 170 — Finite Mathematics</h3>
     <p class="zx-meta">Instructor · University of South Carolina · Fall 2024</p>
   </div>
 </div>
