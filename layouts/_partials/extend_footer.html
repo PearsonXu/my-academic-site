@@ -44,14 +44,21 @@
     btn.addEventListener('click', function () { apply(btn.dataset.set); });
   });
 
-  /* ---------- hijack PaperMod's moon / sun toggle ---------- */
+  /* ---------- hijack PaperMod's moon / sun toggle ----------
+     PaperMod's footer.html binds its OWN click listener to #theme-toggle
+     AFTER this partial runs (it writes data-theme="dark"/"light", which our
+     CSS doesn't define → the button appears to "freeze").
+     Countermeasures:
+     1. cloneNode replaces the original node, dropping any listener already bound;
+     2. stopImmediatePropagation blocks PaperMod's listener (bound later to the
+        clone) from ever executing — listeners fire in add-order, ours is first. */
   var toggle = document.getElementById('theme-toggle');
   if (toggle) {
-    /* Remove PaperMod's own listener by cloning the node */
     var fresh = toggle.cloneNode(true);
     toggle.parentNode.replaceChild(fresh, toggle);
 
-    fresh.addEventListener('click', function () {
+    fresh.addEventListener('click', function (e) {
+      e.stopImmediatePropagation();
       var cur = current();
       /* Light → midnight, Dark → ocean (swap between the two "defaults") */
       apply(isDark(cur) ? 'ocean' : 'midnight');
