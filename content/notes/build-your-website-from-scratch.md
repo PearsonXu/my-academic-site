@@ -1,10 +1,299 @@
 ---
-title: "从零搭建个人网站：一份写给零基础朋友的指南"
+title: "Build Your Personal Website from Scratch"
 date: 2025-08-01
-description: "从买域名到网站上线，手把手带你用 Hugo + AI 搭建一个属于自己的学术/个人网站。无需编程基础。"
-tags: ["教程", "中文", "建站"]
+description: "A step-by-step guide to building your own academic/personal website with Hugo + AI — no coding experience required."
+tags: ["tutorial", "建站"]
 featured: true
 ---
+
+<div class="zx-lang-switch">
+  <button class="zx-lang-btn active" data-lang="en">English</button>
+  <button class="zx-lang-btn" data-lang="zh">中文</button>
+</div>
+
+<div class="zx-lang-content" data-lang="en">
+
+> This guide is written for people with **zero programming experience**. If you can type and click a mouse, you can follow along. The whole process takes about one afternoon.
+
+## Overview: What Are We Building?
+
+End goal: a website at your own domain (e.g. `www.yourname.com`), hosted on GitHub Pages, **completely free** (except the domain itself, ~$10–15/year).
+
+The tech stack is simple:
+
+| Component | Role | Cost |
+|-----------|------|------|
+| Domain (Namecheap / Squarespace) | Your web address | ~$10–15/yr |
+| [Hugo](https://gohugo.io) | Static site generator | Free |
+| [PaperMod](https://github.com/adityatelange/hugo-PaperMod) | Hugo theme | Free |
+| [GitHub](https://github.com) + GitHub Pages | Code hosting + site hosting | Free |
+| [VS Code](https://code.visualstudio.com) + [Cline](https://cline.bot) + AI API | Your AI programming assistant | API usage, negligible |
+
+You do **not** need to write code yourself — the AI writes it for you. Your role is more like a "project manager": describe what you want, and the AI executes.
+
+---
+
+## Step 1: Buy a Domain
+
+A domain is your website's address. Two recommended registrars:
+
+- **[Namecheap](https://www.namecheap.com)**: Affordable, friendly UI. A `.com` domain typically costs $9–12 for the first year.
+- **[Squarespace Domains](https://domains.squarespace.com)**: Cleaner interface, slightly more expensive (~$20/yr).
+
+**Instructions (using Namecheap):**
+
+1. Go to [namecheap.com](https://www.namecheap.com) and type your desired domain (e.g. `yourname.com`) in the search box.
+2. If available, click "Add to Cart" → checkout → create an account → pay.
+3. After purchase, go to **Domain List** → click your domain → you'll see **Nameservers** and **Advanced DNS** tabs. **Remember this page** — you'll come back in Step 8.
+
+> 💡 Tip: Stick with `.com`. If your name is taken, try adding a middle initial or field abbreviation (e.g. `yourname-math.com`).
+
+---
+
+## Step 2: Install VS Code
+
+[Visual Studio Code](https://code.visualstudio.com) (VS Code) is a free code editor by Microsoft. It's also the home for Cline, your AI assistant.
+
+1. Go to [code.visualstudio.com](https://code.visualstudio.com) and click "Download".
+2. Install it (macOS: drag to Applications; Windows: click Next through the wizard).
+3. Open VS Code — you'll see a clean editor interface.
+
+> You don't need to understand any editor features yet. It's just the AI assistant's "home".
+
+---
+
+## Step 3: Install the Cline Extension
+
+[Cline](https://cline.bot) is a VS Code extension that lets AI read/write files and run commands directly on your computer. Think of it as "a programmer sitting inside your machine".
+
+1. In VS Code, click the **Extensions icon** in the left sidebar (four squares, shortcut `Cmd+Shift+X` / `Ctrl+Shift+X`).
+2. Search for **"Cline"**, find the one by `saoudrizwan`, click **Install**.
+3. After installation, a Cline icon (robot-like) appears in the sidebar. Click it.
+4. On first launch, it will ask you to configure an AI provider (next step).
+
+---
+
+## Step 4: Configure an AI API
+
+Cline needs a "brain". Two excellent and affordable options:
+
+### Option A: DeepSeek API (recommended, cheapest)
+
+1. Go to [platform.deepseek.com](https://platform.deepseek.com) and sign up.
+2. Go to **API Keys** → "Create API Key" → copy the key (starts with `sk-`).
+3. Top up ¥10 (~$1.5) in the billing page — enough for a long time.
+4. Back in VS Code → Cline panel → Settings → choose **OpenAI Compatible** provider:
+   - API Key: paste your key
+   - Base URL: `https://api.deepseek.com`
+   - Model ID: `deepseek-chat`
+
+### Option B: Qwen (Tongyi Qianwen) API
+
+1. Go to [Alibaba Cloud Bailian](https://bailian.console.aliyun.com/) and log in with Alipay/Taobao.
+2. Go to **API-KEY Management** → create a key.
+3. New users usually get free credits.
+4. In Cline settings, choose **OpenAI Compatible**:
+   - API Key: paste your key
+   - Base URL: `https://dashscope.aliyuncs.com/compatible-mode/v1`
+   - Model ID: `qwen-plus`
+
+> 💡 Both use the OpenAI-compatible format, so Cline configuration is identical. DeepSeek is cheaper; Qwen has slightly stronger Chinese comprehension. Either works.
+
+---
+
+## Step 5: Build the Website
+
+Now the fun part. In Cline's chat box, describe what you want in plain language.
+
+### 5.1 Create the Project
+
+Type in Cline's chat:
+
+```
+Create a Hugo website in the current directory using the PaperMod theme.
+Site title: "Your Name | Your Field", baseURL: "https://www.yourname.com/".
+```
+
+Cline will automatically:
+- Install Hugo (if not already on your machine)
+- Create the project structure
+- Download the PaperMod theme
+- Generate the config file `hugo.toml`
+
+### 5.2 Add Pages
+
+Continue telling Cline:
+
+```
+Create the following pages:
+- About: a short bio
+- Research: list research interests
+- Teaching: list TA/course experience
+- Notes (blog): for writing articles
+Add navigation menu links for all of them.
+```
+
+### 5.3 Write Your First Post
+
+```
+Create a post at content/notes/hello-world.md,
+title "Hello, World", with a few test sentences.
+```
+
+### 5.4 Customize Styling (Optional)
+
+```
+Customize the PaperMod theme colors and fonts
+to make it look like a clean academic website.
+```
+
+> 💡 You don't need to say everything at once. Chat with Cline iteratively — after each change, refresh your browser to see the result.
+
+---
+
+## Step 6: Local Testing
+
+In VS Code's terminal (menu: Terminal → New Terminal), run:
+
+```bash
+hugo server -D
+```
+
+Then open **http://localhost:1313** in your browser. You'll see a live preview — any file change auto-refreshes.
+
+Checklist:
+- [ ] Homepage displays correctly
+- [ ] All nav links work
+- [ ] Post pages render properly
+- [ ] Mobile view (F12 → device emulation) looks good
+
+When satisfied, press `Ctrl+C` to stop the server.
+
+---
+
+## Step 7: Deploy to GitHub Pages
+
+### 7.1 Create a GitHub Repository
+
+1. Go to [github.com](https://github.com), sign up / log in.
+2. Click "+" → **New repository**.
+3. Name it anything (e.g. `my-academic-site`), Public or Private.
+4. After creation, in VS Code terminal:
+
+```bash
+git init
+git add -A
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/my-academic-site.git
+git push -u origin main
+```
+
+(Or just tell Cline: "Initialize git and push to GitHub for me.")
+
+### 7.2 Set Up GitHub Actions Auto-Deploy
+
+Tell Cline:
+
+```
+Create a GitHub Actions workflow that builds with Hugo
+and deploys to GitHub Pages on every push to main.
+```
+
+It creates `.github/workflows/hugo.yml`. After pushing, go to your repo → **Settings** → **Pages** → Source: **GitHub Actions**.
+
+Wait a few minutes — your site appears at `https://YOUR_USERNAME.github.io/my-academic-site/`.
+
+### 7.3 Bind Your Custom Domain
+
+1. Repo → **Settings** → **Pages** → **Custom domain**: enter `www.yourname.com` → Save.
+2. Check **Enforce HTTPS**.
+3. Create a `static/CNAME` file containing `www.yourname.com` (tell Cline: "Create static/CNAME with content www.yourname.com").
+
+---
+
+## Step 8: DNS Configuration
+
+Go back to your domain registrar (Namecheap → Domain List → your domain → **Advanced DNS**).
+
+Add these records:
+
+| Type | Host | Value | TTL |
+|------|------|-------|-----|
+| A Record | `@` | `185.199.108.153` | Automatic |
+| A Record | `@` | `185.199.109.153` | Automatic |
+| A Record | `@` | `185.199.110.153` | Automatic |
+| A Record | `@` | `185.199.111.153` | Automatic |
+| CNAME Record | `www` | `YOUR_USERNAME.github.io` | Automatic |
+
+> These four IPs are GitHub Pages' official addresses ([source](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)).
+
+After saving, DNS propagation takes **10 minutes to 48 hours** (usually under 1 hour).
+
+---
+
+## Step 9: Verify & Test
+
+Once DNS propagates, check each item:
+
+1. **Browser**: Open `https://www.yourname.com` — see your site? ✅
+2. **HTTPS**: Padlock icon in the address bar? ✅ (GitHub auto-issues Let's Encrypt certs)
+3. **Command line** (optional, in terminal):
+
+```bash
+# Check DNS resolution
+dig www.yourname.com +short
+# Should return YOUR_USERNAME.github.io
+
+# Check HTTP response
+curl -I https://www.yourname.com
+# Should return HTTP/2 200
+```
+
+4. **Global reachability**: Open [whatsmydns.net](https://www.whatsmydns.net), enter your domain, check worldwide DNS sync.
+5. **Mobile test**: Open your domain on your phone's browser (turn off Wi-Fi, use cellular).
+
+---
+
+## FAQ
+
+**Q: I truly cannot code. Can I really do this?**
+A: Yes. Every "technical operation" in this guide can be done by telling Cline one sentence. Your job is to describe what you want.
+
+**Q: I don't understand the code the AI writes. What do I do?**
+A: You don't need to understand it. Like driving a car without understanding the engine. If something breaks, paste the error to Cline — it will fix it.
+
+**Q: How much does this cost per year?**
+A: Domain ~$10–15. Hosting free (GitHub Pages). AI API a few cents per month. Total under $20/year.
+
+**Q: How do I update content later?**
+A: Open the `.md` file in VS Code, edit, save, then `git add -A && git commit -m "update" && git push`. Or tell Cline: "Change the second paragraph of my About page to…"
+
+---
+
+## Link Summary
+
+| Resource | Link |
+|----------|------|
+| Namecheap (domain) | https://www.namecheap.com |
+| Squarespace Domains | https://domains.squarespace.com |
+| VS Code | https://code.visualstudio.com |
+| Cline extension | https://cline.bot |
+| DeepSeek API | https://platform.deepseek.com |
+| Qwen API | https://bailian.console.aliyun.com |
+| Hugo | https://gohugo.io |
+| PaperMod theme | https://github.com/adityatelange/hugo-PaperMod |
+| GitHub | https://github.com |
+| GitHub Pages docs | https://docs.github.com/en/pages |
+| DNS checker | https://www.whatsmydns.net |
+
+---
+
+*Written August 2025. If you follow along and finish, feel free to email me your website.*
+
+</div>
+
+<div class="zx-lang-content" data-lang="zh" style="display:none">
 
 > 这篇文章面向完全没有编程经验的朋友。你只需要会打字、会点鼠标，就能跟着做完。整个过程大约需要一个下午。
 
@@ -37,7 +326,7 @@ featured: true
 
 1. 打开 [namecheap.com](https://www.namecheap.com)，在搜索框输入你想要的域名（比如 `yourname.com`）。
 2. 如果可用，点击 "Add to Cart" → 结账 → 注册账号 → 付款。
-3. 购买完成后，进入 **Domain List** → 点击你的域名 → 你会看到 **Nameservers** 和 **Advanced DNS** 选项卡。**先记住这个页面**，后面第七步会回来。
+3. 购买完成后，进入 **Domain List** → 点击你的域名 → 你会看到 **Nameservers** 和 **Advanced DNS** 选项卡。**先记住这个页面**，后面第八步会回来。
 
 > 💡 建议：选 `.com` 后缀。如果名字被占了，试试加中间名缩写或专业缩写（如 `yourname-math.com`）。
 
@@ -282,3 +571,21 @@ A：在 VS Code 里打开对应的 `.md` 文件，改完保存，然后 `git add
 ---
 
 *写于 2025 年 8 月。如果你跟着做完了，欢迎给我发邮件分享你的网站。*
+
+</div>
+
+<script>
+(function () {
+  var btns = document.querySelectorAll('.zx-lang-btn');
+  var sections = document.querySelectorAll('.zx-lang-content');
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var lang = btn.dataset.lang;
+      btns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+      sections.forEach(function (s) {
+        s.style.display = s.dataset.lang === lang ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
