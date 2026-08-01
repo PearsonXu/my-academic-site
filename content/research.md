@@ -7,42 +7,61 @@ layout: "single"
 
 # Research & Publications
 
-My research focuses on **numerical methods for partial differential equations** — developing algorithms that are provably convergent, computationally efficient, and robust in practice. Below is a selection of works in progress and published.
+My research focuses on **computational and applied mathematics** — developing efficient, energy-stable numerical schemes for phase-field models and interfacial dynamics. I work on both the theoretical foundations (unconditional stability, convergence analysis) and practical algorithms (decoupled solvers, high-order methods).
 
-## Works in Progress
+## Publications
 
 <div class="zx-list-row">
-  <span class="zx-year">2025</span>
+  <span class="zx-year">2026</span>
   <div>
-    <h3>Adaptive Finite Element Methods for Multiscale Problems</h3>
-    <p class="zx-meta">With collaborators at UofSC · In preparation — a posteriori error estimation and adaptive refinement strategies for PDEs with highly oscillatory coefficients.</p>
+    <h3>Efficient, Decoupled, Second- and Third-Order IMEX-RK Schemes with Original-Form Energy Stability for the Anisotropic Phase-Field Dendritic Growth Model</h3>
+    <p class="zx-meta">Jianan Li, <b>Zhaoqing Xu</b> (co-first), Jiang Yang, Xiaofeng Yang · <i>SIAM Journal on Scientific Computing (SISC)</i>, 48(2), B233–B261, 2026.</p>
   </div>
 </div>
 
 <div class="zx-list-row">
-  <span class="zx-year">2025</span>
+  <span class="zx-year">2026</span>
   <div>
-    <h3>Efficient Solvers for Nonlinear Optimization with PDE Constraints</h3>
-    <p class="zx-meta">In preparation — gradient-based methods with adaptive step-size rules; applications to inverse problems.</p>
+    <h3>Dihedral-Symmetry-Preserving and Energy-Stable Spectral Schemes for the Two-Dimensional Anisotropic Phase-Field Dendritic Growth Model</h3>
+    <p class="zx-meta"><b>Zhaoqing Xu</b> (co-first), Jianan Li, Jiang Yang, Xiaofeng Yang · Submitted to <i>Computer Methods in Applied Mechanics and Engineering (CMAME)</i>, 2026.</p>
+  </div>
+</div>
+
+## Manuscripts in Preparation
+
+<div class="zx-list-row">
+  <span class="zx-year">—</span>
+  <div>
+    <h3>Unconditional Original Energy-Dissipative and MBP-Preserving Second-Order IMEX-RK Schemes for the Allen–Cahn Equation with Degenerate Mobility</h3>
+    <p class="zx-meta">Jianan Li, Tao Tang, <b>Zhaoqing Xu</b>, Jiang Yang · In preparation.</p>
+  </div>
+</div>
+
+<div class="zx-list-row">
+  <span class="zx-year">—</span>
+  <div>
+    <h3>A Sticky Particle Method for the Euler-Alignment System</h3>
+    <p class="zx-meta">Alina Chertock, Changhui Tan, <b>Zhaoqing Xu</b> · In preparation.</p>
+  </div>
+</div>
+
+## Presentations
+
+<div class="zx-list-row">
+  <span class="zx-year">2026</span>
+  <div>
+    <h3>North American High Order Methods Conference (NAHOMCon)</h3>
+    <p class="zx-meta">Contributed Talk — <i>Efficient, decoupled IMEX-RK schemes for the anisotropic phase-field dendritic growth model</i> · Santa Fe, NM, June 2026.</p>
   </div>
 </div>
 
 ## Selected Topics
 
-- **Stability analysis** of time-stepping schemes for parabolic equations
-- **Convergence rates** for mixed finite element discretizations
-- **Fast multipole / hierarchical matrix** techniques for dense linear systems arising from boundary integral methods
-
-## Talks & Posters
-
-<div class="zx-list-row">
-  <span class="zx-year">2024</span>
-  <div>
-    <h3>SIAM Annual Meeting</h3>
-    <p class="zx-meta">Contributed talk — *(title to be updated)*</p>
-  </div>
-</div>
+- **Energy stability** — original-form energy laws, unconditional dissipation, maximum bound principle (MBP)
+- **High-order IMEX methods** — second- and third-order Runge–Kutta, spectral collocation
+- **Structure preservation** — dihedral symmetry, positivity, volume conservation
+- **Dendritic growth** — anisotropic phase-field models, solidification dynamics
 
 ---
 
-*Full publication list available in my <a href="/cv.pdf">CV</a>. Manuscripts and code will be linked here as they are released.*
+*Full CV available <a href="/cv.pdf">here</a>. Code and preprints will be linked as they are released.*
