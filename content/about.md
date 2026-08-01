@@ -22,7 +22,7 @@ Born in Shijiazhuang, Hebei Province, China.
 
 ## Education
 
-I studied at [**SUSTech**](https://www.sustech.edu.cn/en/) (Southern University of Science and Technology, 南方科技大学) for both my undergraduate and master's degrees, and I am now a doctoral student at [**UofSC**](https://sc.edu/) (University of South Carolina, 南卡罗来纳大学).
+I studied at [**SUSTech**](https://www.sustech.edu.cn/en/) (Southern University of Science and Technology, 南方科技大学) for both my undergraduate and master's degrees, and I am now a doctoral student at [**UofSC**](https://sc.edu/) (University of South Carolina, 南卡罗莱纳大学).
 
 | Year | Degree | Institution | Advisor |
 |------|--------|-------------|---------|
