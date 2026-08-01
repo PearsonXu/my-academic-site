@@ -19,6 +19,9 @@
   function apply(name) {
     root.setAttribute('data-theme', name);
     localStorage.setItem('zx-theme', name);
+    /* Keep PaperMod's internal key in sync so it never overrides us on reload */
+    var pmDark = (name === 'midnight' || name === 'ember');
+    localStorage.setItem('pref-theme', pmDark ? 'dark' : 'light');
     buttons.forEach(function (btn) {
       var on = btn.dataset.set === name;
       btn.classList.toggle('active', on);
