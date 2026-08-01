@@ -13,15 +13,22 @@
   var root = document.documentElement;
   var buttons = document.querySelectorAll('.zx-tbtn');
   var label = document.getElementById('zxTLabel');
-  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  var saved = localStorage.getItem('zx-theme') || (prefersDark ? 'midnight' : 'ocean');
+  var DARK_SET = { midnight: 1, ember: 1 };
+
+  /* ---------- helpers ---------- */
+  function isDark(name) { return !!DARK_SET[name]; }
+
+  function current() {
+    return root.getAttribute('data-theme') || 'ocean';
+  }
 
   function apply(name) {
     root.setAttribute('data-theme', name);
-    localStorage.setItem('zx-theme', name);
-    /* Keep PaperMod's internal key in sync so it never overrides us on reload */
-    var pmDark = (name === 'midnight' || name === 'ember');
-    localStorage.setItem('pref-theme', pmDark ? 'dark' : 'light');
+    try {
+      localStorage.setItem('zx-theme', name);
+      /* Keep PaperMod's key in sync so its head script never overrides us */
+      localStorage.setItem('pref-theme', isDark(name) ? 'dark' : 'light');
+    } catch (e) {}
     buttons.forEach(function (btn) {
       var on = btn.dataset.set === name;
       btn.classList.toggle('active', on);
@@ -29,10 +36,26 @@
     });
   }
 
-  apply(saved);
+  /* ---------- init from whatever the head bootstrap set ---------- */
+  apply(current());
 
+  /* ---------- 5-colour palette buttons ---------- */
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function () { apply(btn.dataset.set); });
   });
+
+  /* ---------- hijack PaperMod's moon / sun toggle ---------- */
+  var toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    /* Remove PaperMod's own listener by cloning the node */
+    var fresh = toggle.cloneNode(true);
+    toggle.parentNode.replaceChild(fresh, toggle);
+
+    fresh.addEventListener('click', function () {
+      var cur = current();
+      /* Light → midnight, Dark → ocean (swap between the two "defaults") */
+      apply(isDark(cur) ? 'ocean' : 'midnight');
+    });
+  }
 })();
 </script>

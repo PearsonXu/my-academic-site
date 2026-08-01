@@ -131,7 +131,27 @@
   --hljs-bg: #1a2236;
   --code-bg: #1e2840;
   --border: rgba(240, 243, 248, 0.16);
+  color-scheme: dark;
 }
+
+/* ---- color-scheme for dark palettes (scrollbars, form controls) ---- */
+[data-theme="ember"] { color-scheme: dark; }
+
+/* ---- PaperMod moon/sun icon visibility for our theme names ---- */
+/* PaperMod only has rules for data-theme="dark" and "light".
+   Our themes use custom names, so we replicate the logic:
+   dark palettes  → hide .sun, show .moon
+   light palettes → hide .moon, show .sun */
+[data-theme="midnight"] .sun,
+[data-theme="ember"] .sun { display: none; }
+
+[data-theme="ocean"] .moon,
+[data-theme="sand"] .moon,
+[data-theme="slate"] .moon { display: none; }
+
+/* ---- PaperMod .list background fix for our dark themes ---- */
+[data-theme="midnight"] .list,
+[data-theme="ember"] .list { background: var(--theme); }
 
 /* ------------------------------------------------------------
    2. TYPE & BASE

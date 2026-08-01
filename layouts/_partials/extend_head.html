@@ -3,19 +3,36 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Early theme sync: apply saved zx-theme BEFORE PaperMod's own script runs,
-     and keep PaperMod's internal key in sync so every page stays consistent. -->
+<!-- ============ THEME BOOTSTRAP (runs in <head>, before first paint) ============
+     Single source of truth: localStorage "zx-theme"
+       Values: ocean | sand | slate  (light)
+               ember | midnight       (dark)
+     Fallback chain: zx-theme → pref-theme (PaperMod compat) → system preference
+     We also write pref-theme so PaperMod's own head script (which runs just
+     above this partial) doesn't fight us on subsequent loads. -->
 <script>
 (function () {
   try {
+    var root = document.documentElement;
+    var DARK_SET = { midnight: 1, ember: 1 };
     var saved = localStorage.getItem('zx-theme');
-    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var theme = saved || (prefersDark ? 'midnight' : 'ocean');
-    document.documentElement.setAttribute('data-theme', theme);
-    /* Keep PaperMod's own key aligned so its head script doesn't override us.
-       PaperMod uses "pref-theme" key and checks for "dark"/"light" values. */
-    var pmDark = (theme === 'midnight' || theme === 'ember');
-    localStorage.setItem('pref-theme', pmDark ? 'dark' : 'light');
+
+    /* Migrate: if only PaperMod's key exists, honour it */
+    if (!saved) {
+      var pm = localStorage.getItem('pref-theme');
+      if (pm === 'dark') saved = 'midnight';
+      else if (pm === 'light') saved = 'ocean';
+    }
+
+    /* Fall back to OS preference */
+    if (!saved) {
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      saved = prefersDark ? 'midnight' : 'ocean';
+    }
+
+    root.setAttribute('data-theme', saved);
+    /* Keep PaperMod's key in sync so its head script never overrides us */
+    localStorage.setItem('pref-theme', DARK_SET[saved] ? 'dark' : 'light');
   } catch (e) {}
 })();
 </script>
