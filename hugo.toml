@@ -33,7 +33,7 @@ theme = "PaperMod"
   weight = 3
 
 [[menu.main]]
-  name = "漫谈"
+  name = "Musings"
   url = "/notes/"
   weight = 4
 
