@@ -7,7 +7,7 @@ layout: "single"
 
 # Teaching
 
-I believe teaching mathematics is about making the abstract *visible* — connecting rigorous argument to geometric intuition and computation. I have served as instructor of record for six semesters at the University of South Carolina.
+I believe teaching mathematics is about making the abstract *visible* — connecting rigorous argument to geometric intuition and computation. I have served as instructor of record for five semesters at the University of South Carolina.
 
 ## As Instructor of Record
 

@@ -13,7 +13,8 @@
   var root = document.documentElement;
   var buttons = document.querySelectorAll('.zx-tbtn');
   var label = document.getElementById('zxTLabel');
-  var saved = localStorage.getItem('zx-theme') || 'ocean';
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var saved = localStorage.getItem('zx-theme') || (prefersDark ? 'midnight' : 'ocean');
 
   function apply(name) {
     root.setAttribute('data-theme', name);

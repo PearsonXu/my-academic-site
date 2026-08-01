@@ -22,11 +22,13 @@ Born in Shijiazhuang, Hebei Province, China.
 
 ## Education
 
+I studied at [**SUSTech**](https://www.sustech.edu.cn/en/) (Southern University of Science and Technology, 南方科技大学) for both my undergraduate and master's degrees, and I am now a doctoral student at [**UofSC**](https://sc.edu/) (University of South Carolina, 南卡罗来纳大学).
+
 | Year | Degree | Institution | Advisor |
 |------|--------|-------------|---------|
-| 2021–2027 (expected) | Ph.D., Mathematics | University of South Carolina | [Prof. Xiaofeng Yang](https://people.math.sc.edu/xfyang/) |
-| 2019–2021 | M.S., Mathematics | Southern University of Science and Technology | [Prof. Jiang Yang](https://www.sustech.edu.cn/en/faculties/yangjiang.html) |
-| 2015–2019 | B.S., Mathematics & Applied Mathematics | Southern University of Science and Technology | [Prof. Jiang Yang](https://www.sustech.edu.cn/en/faculties/yangjiang.html) |
+| 2021–2027 (expected) | Ph.D., Mathematics | UofSC | [Prof. Xiaofeng Yang](https://people.math.sc.edu/xfyang/) |
+| 2019–2021 | M.S., Mathematics | SUSTech | [Prof. Jiang Yang](https://www.sustech.edu.cn/en/faculties/yangjiang.html) |
+| 2015–2019 | B.S., Mathematics & Applied Mathematics | SUSTech | [Prof. Jiang Yang](https://www.sustech.edu.cn/en/faculties/yangjiang.html) |
 
 ## Honors & Awards
 
