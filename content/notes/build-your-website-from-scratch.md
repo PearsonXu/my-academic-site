@@ -177,7 +177,7 @@ When satisfied, press `Ctrl+C` to stop the server.
 
 1. Go to [github.com](https://github.com), sign up / log in.
 2. Click "+" → **New repository**.
-3. Name it anything (e.g. `my-academic-site`), Public or Private.
+3. Name it anything (e.g. `my-academic-site`). **Important: you must set it to Public** — GitHub Pages is only available for public repositories on the free plan.
 4. After creation, in VS Code terminal:
 
 ```bash
@@ -459,7 +459,7 @@ hugo server -D
 
 1. 打开 [github.com](https://github.com)，注册/登录。
 2. 点击右上角 "+" → **New repository**。
-3. 仓库名随意（如 `my-academic-site`），选 **Private** 或 Public 均可。
+3. 仓库名随意（如 `my-academic-site`）。**注意：必须选择 Public（公开）**——免费版 GitHub Pages 只支持公开仓库。
 4. 创建后，在 VS Code 终端执行：
 
 ```bash
