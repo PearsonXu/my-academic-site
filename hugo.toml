@@ -1,0 +1,26 @@
+baseURL = "https://mathusc.com/"
+locale = "en-us"
+title = "Zhaoqing Xu | Computational Mathematics"
+theme = "PaperMod"
+
+[params]
+  env = "production"
+  author = "Zhaoqing Xu"
+  description = "Ph.D. Candidate in Computational Mathematics at University of South Carolina"
+  math = true
+
+[params.profileMode]
+  enabled = true
+  title = "Zhaoqing Xu"
+  subtitle = "Ph.D. Candidate & Instructor of Record, University of South Carolina"
+  imageUrl = ""
+  imageWidth = 150
+  imageHeight = 150
+
+  [[params.profileMode.buttons]]
+    name = "CV"
+    url = "/cv.pdf"
+
+  [[params.profileMode.buttons]]
+    name = "Teaching"
+    url = "/teaching/"
