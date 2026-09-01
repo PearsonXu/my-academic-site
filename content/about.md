@@ -1,5 +1,6 @@
 ---
 title: "About"
+description: "Zhaoqing Xu 许钊箐 — Ph.D. candidate in Computational Mathematics at the University of South Carolina. Research interests, education, honors, and contact."
 layout: "single"
 ---
 
@@ -40,7 +41,7 @@ I studied at [**SUSTech**](https://www.sustech.edu.cn/en/) (Southern University 
 
 ## Academic Service
 
-- **President**, SIAM Student Chapter, University of South Carolina, 2022–present
+- **President**, SIAM Student Chapter, University of South Carolina, 2022–2026
 - Reviewer for *zbMATH Open*
 
 ## Contact

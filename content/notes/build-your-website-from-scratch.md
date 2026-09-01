@@ -1,6 +1,6 @@
 ---
 title: "Build Your Personal Website from Scratch"
-date: 2025-08-01
+date: 2026-08-01
 description: "A step-by-step guide to building your own academic/personal website with Hugo + AI — no coding experience required."
 tags: ["tutorial", "建站"]
 featured: true

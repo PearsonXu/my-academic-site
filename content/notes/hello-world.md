@@ -1,6 +1,6 @@
 ---
 title: "Hello, World — 写在网站上线时"
-date: 2025-07-31
+date: 2026-07-31
 description: "Why I built this site, what will live here, and a few notes on the design."
 tags: ["meta", "中文"]
 featured: true

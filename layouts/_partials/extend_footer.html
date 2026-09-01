@@ -29,6 +29,12 @@
       /* Keep PaperMod's key in sync so its head script never overrides us */
       localStorage.setItem('pref-theme', isDark(name) ? 'dark' : 'light');
     } catch (e) {}
+    /* Sync <meta name="theme-color"> (browser chrome / Android) with the palette */
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      var paper = getComputedStyle(root).getPropertyValue('--paper').trim();
+      if (paper) meta.setAttribute('content', paper);
+    }
     buttons.forEach(function (btn) {
       var on = btn.dataset.set === name;
       btn.classList.toggle('active', on);

@@ -1,5 +1,6 @@
 ---
 title: "Musings"
+description: "Essays, study notes, and records on mathematics, computing, and learning — in English and 中文."
 layout: "notes"
 url: "/notes/"
 ---

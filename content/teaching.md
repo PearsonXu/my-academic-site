@@ -1,5 +1,6 @@
 ---
 title: "Teaching"
+description: "Courses taught as instructor of record and teaching assistant at UofSC and SUSTech, with teaching philosophy and materials."
 layout: "single"
 ---
 

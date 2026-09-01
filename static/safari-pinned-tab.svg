@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- silhouette version for Safari pinned tabs (mask-icon) -->
+  <path fill-rule="evenodd" fill="#000"
+        d="M 10 50 a 40 32 0 1 0 80 0 a 40 32 0 1 0 -80 0 z
+           M 29 50 a 21 16.5 0 1 0 42 0 a 21 16.5 0 1 0 -42 0 z"/>
+  <circle cx="50" cy="50" r="8" fill="#000"/>
+</svg>

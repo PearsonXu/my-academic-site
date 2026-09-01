@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- contour-ring motif: level sets + optimum node -->
+  <ellipse cx="32" cy="32" rx="26" ry="21" fill="none" stroke="#0e7c86" stroke-width="4.5"/>
+  <ellipse cx="32" cy="32" rx="13.5" ry="10.5" fill="none" stroke="#0e7c86" stroke-width="3" opacity="0.55"/>
+  <circle cx="32" cy="32" r="5" fill="#c98a12"/>
+</svg>

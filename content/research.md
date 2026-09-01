@@ -1,5 +1,6 @@
 ---
 title: "Research"
+description: "Publications, manuscripts, and presentations — energy-stable schemes for phase-field models, dendritic growth, and interfacial dynamics."
 layout: "single"
 ---
 

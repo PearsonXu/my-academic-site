@@ -9,10 +9,15 @@ theme = "PaperMod"
   description = "Ph.D. Candidate in Computational Mathematics at University of South Carolina"
   math = true
   defaultTheme = "light"
+  images = ["og-card.png"]
   ShowReadingTime = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowShareButtons = false
+
+[params.assets]
+  theme_color = "#f5f8fa"
+  msapplication_TileColor = "#f5f8fa"
 
 [params.profileMode]
   enabled = false
