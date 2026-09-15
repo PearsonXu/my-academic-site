@@ -1,8 +1,59 @@
-<!-- Favicon: vector version for modern browsers (bitmap fallbacks in static/) -->
-<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | absURL }}">
+<!-- Favicon: vector version for modern browsers (bitmap fallbacks in static/).
+     relURL (not absURL) so local preview resolves against localhost instead of
+     the production domain. -->
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
 
 <!-- Fonts are self-hosted: @font-face rules live in assets/css/extended/fonts.css
-     and are bundled into the main stylesheet by PaperMod (no external requests). -->
+     and are bundled into the main stylesheet by PaperMod (no external requests).
+     The three primary faces are preloaded so text does not visibly re-layout
+     (FOUT) after first paint. `crossorigin` is mandatory for font preloads even
+     same-origin, otherwise the preloaded copy is discarded and fetched twice. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="{{ "fonts/fraunces-normal-400.woff2" | relURL }}">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="{{ "fonts/source-sans-3-normal-400.woff2" | relURL }}">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="{{ "fonts/ibm-plex-mono-normal-400.woff2" | relURL }}">
+
+<!-- ============ CRITICAL CSS SAFETY NET ============
+     Every selector is wrapped in :where(), which forces specificity to (0,0,0).
+     The real stylesheet therefore ALWAYS wins when it loads -- this block can never
+     fight the theme. It exists purely as a floor for the case where the external
+     sheet is missing (stale cached HTML referencing a deleted asset, a blocked or
+     failed request, offline): the page still renders as a legible document instead
+     of a naked bullet-list nav with inline SVGs blown up to the 300x150 default. -->
+<style>
+:where(*), :where(*::before), :where(*::after) { box-sizing: border-box; }
+:where(html) { -webkit-text-size-adjust: 100%; }
+:where(body) {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #1f1f1f;
+  background: #fff;
+  word-break: break-word;
+}
+/* PaperMod's reset.css places no bounds on <svg>, so unconstrained inline icons
+   fall back to the browser default 300x150. This caps them. */
+:where(img), :where(svg) { max-width: 100%; height: auto; }
+:where(a) { color: inherit; text-decoration: none; }
+/* The contour drawing is only a fallback for a missing GIF -- never show it here. */
+:where(.zx-media-fallback) { display: none; }
+/* Keep the masthead from collapsing into an unstyled list. */
+:where(.header-nav) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 10px 24px;
+}
+:where(.logo) { display: flex; align-items: center; gap: 8px; }
+:where(.menu) { display: flex; flex-wrap: wrap; gap: 18px; list-style: none; margin: 0; padding: 0; }
+:where(.main) { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+:where(pre) { overflow-x: auto; }
+:where(table) { width: 100%; border-collapse: collapse; }
+</style>
 
 <!-- ============ THEME BOOTSTRAP (runs in <head>, before first paint) ============
      Single source of truth: localStorage "zx-theme"
@@ -10,11 +61,20 @@
                ember | midnight       (dark)
      Fallback chain: zx-theme → pref-theme (PaperMod compat) → system preference
      We also write pref-theme so PaperMod's own head script (which runs just
-     above this partial) doesn't fight us on subsequent loads. -->
+     above this partial) doesn't fight us on subsequent loads.
+
+     This script is synchronous and sits in <head>, so data-theme is correct before
+     the first paint -- no dark-mode flash / repaint jolt.
+
+     It also sets the `zx-js` opt-in flag consumed by custom.css: scroll-reveal
+     sections only start hidden when JS is genuinely available, so a JS-less or
+     JS-failed load never leaves whole sections invisible. The flag is set outside
+     the try block so it applies even if localStorage access throws. -->
 <script>
 (function () {
+  var root = document.documentElement;
+  root.classList.add('zx-js');
   try {
-    var root = document.documentElement;
     var DARK_SET = { midnight: 1, ember: 1 };
     var saved = localStorage.getItem('zx-theme');
 

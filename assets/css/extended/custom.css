@@ -685,20 +685,24 @@ h1, h2, h3, h4 {
    7. SCROLL REVEAL
    ------------------------------------------------------------ */
 
-.reveal {
+/* Scroll-reveal, gated behind html.zx-js (set synchronously by the head bootstrap
+   in layouts/_partials/extend_head.html). Progressive enhancement: with JS disabled
+   or failing, the class is never added and every section stays visible instead of
+   being stuck at opacity: 0 forever. */
+html.zx-js .reveal {
   opacity: 0;
   transform: translateY(26px);
   transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
 }
 
-.reveal.is-visible {
+html.zx-js .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.reveal[data-delay="1"] { transition-delay: 0.1s; }
-.reveal[data-delay="2"] { transition-delay: 0.2s; }
-.reveal[data-delay="3"] { transition-delay: 0.3s; }
+html.zx-js .reveal[data-delay="1"] { transition-delay: 0.1s; }
+html.zx-js .reveal[data-delay="2"] { transition-delay: 0.2s; }
+html.zx-js .reveal[data-delay="3"] { transition-delay: 0.3s; }
 
 /* ------------------------------------------------------------
    8. CONTENT PAGES (about / research / teaching / posts)

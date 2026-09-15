@@ -18,6 +18,14 @@ theme = "PaperMod"
 [params.assets]
   theme_color = "#f5f8fa"
   msapplication_TileColor = "#f5f8fa"
+  # Emit a STABLE stylesheet URL (/assets/css/stylesheet.css) instead of a
+  # fingerprinted one. GitHub Pages serves HTML with `cache-control: max-age=600`,
+  # so a browser (or CDN edge) holding HTML from the previous deploy would request
+  # the previous fingerprinted CSS -- which every new build deletes -- and get a
+  # 404. The page then renders with zero CSS: the nav collapses into a bare bullet
+  # list and inline SVGs blow up to the 300x150 default. A stable URL can never
+  # 404; the worst case is <=10 min of valid-but-slightly-older CSS.
+  disableFingerprinting = true
 
 [params.profileMode]
   enabled = false
