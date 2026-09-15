@@ -390,8 +390,9 @@ h1, h2, h3, h4 {
   transform: translateX(5px);
 }
 
-/* Figure panel — animated contour plot, the "research artifact" */
+/* Figure panel — crystal-growth GIF, the "research artifact" */
 .zx-figure {
+  --fig-plate: #fefefe; /* matches the GIF's own background exactly; set to var(--card) to follow the theme */
   position: relative;
   border: 1px solid var(--line);
   background:
@@ -445,22 +446,61 @@ h1, h2, h3, h4 {
   fill: var(--accent-2);
 }
 
+/* ---- figure media: the crystal-growth GIF (+ SVG contour fallback) ---- */
+.zx-figure .zx-media {
+  background: var(--fig-plate);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.zx-figure .zx-media-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The contour drawing stays in the markup as a graceful fallback: it is only
+   revealed when the GIF 404s, so the hero never shows a broken image. */
+.zx-figure .zx-media-fallback {
+  display: none;
+}
+
+.zx-figure.no-media .zx-media {
+  background: transparent;
+  border-color: transparent;
+}
+
+.zx-figure.no-media .zx-media-fallback {
+  display: block;
+}
+
+/* Caption text swaps to describe whichever visual is actually on screen. */
+.zx-figure .t-fallback {
+  display: none;
+}
+
+.zx-figure.no-media .t-media {
+  display: none;
+}
+
+.zx-figure.no-media .t-fallback {
+  display: inline;
+}
+
 .zx-figcap {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(0.92rem, 2.4vw, 1.08rem);
+  letter-spacing: 0.01em;
   color: var(--ink-soft);
   border-top: 1px dashed var(--line);
   margin-top: 12px;
-  padding-top: 9px;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.zx-figcap b {
-  color: var(--accent);
-  font-weight: 500;
+  padding-top: 10px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ------------------------------------------------------------

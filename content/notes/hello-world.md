@@ -22,6 +22,6 @@ This site is now live at [www.zhaoqingxu.com](https://www.zhaoqingxu.com). It se
 
 ## A note on the design
 
-The site is built with [Hugo](https://gohugo.io) and the PaperMod theme, heavily customized: a graph-paper background, contour-line figure on the homepage (a nod to level sets and gradient descent), and five switchable color themes — try the switcher in the bottom-right corner. Your choice is remembered locally.
+The site is built with [Hugo](https://gohugo.io) and the PaperMod theme, heavily customized: a graph-paper background, an animated crystal-growth figure on the homepage (a nod to the phase-field models I work on), and five switchable color themes — try the switcher in the bottom-right corner. Your choice is remembered locally.
 
 More posts coming soon.
