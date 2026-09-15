@@ -34,6 +34,12 @@
 /* PaperMod's reset.css places no bounds on <svg>, so unconstrained inline icons
    fall back to the browser default 300x150. This caps them. */
 :where(img), :where(svg) { max-width: 100%; height: auto; }
+/* SVG shapes default to fill:black per spec. Our custom art gets its `fill: none`
+   from class rules in the main sheet, so without it they render as solid black
+   blobs ("giant black arrow"). Scoped to .zx-* on purpose: a blanket
+   `svg { max-width: 1.25rem !important }` would crush the full-width hero
+   underline and the 320x260 contour illustration. */
+:where(.zx-hl path), :where(.zx-contour), :where(.zx-flow) { fill: none; }
 :where(a) { color: inherit; text-decoration: none; }
 /* The contour drawing is only a fallback for a missing GIF -- never show it here. */
 :where(.zx-media-fallback) { display: none; }
@@ -95,5 +101,41 @@
     /* Keep PaperMod's key in sync so its head script never overrides us */
     localStorage.setItem('pref-theme', DARK_SET[saved] ? 'dark' : 'light');
   } catch (e) {}
+})();
+</script>
+
+<!-- ============ STYLESHEET SELF-HEAL ============
+     This site has NO client-side router: Hugo emits plain MPA links and the only
+     history.pushState in the entire codebase is PaperMod's `a[href^="#"]`
+     smooth-scroll (footer.html:58), which rewrites a fragment and never swaps the
+     document or touches <head>. So "styles stripped on link navigation but fine
+     after F5" is plain HTTP-cache semantics, not a soft-routing bug:
+
+       * link navigation -> browser may reuse a still-fresh cached HTML document
+         (GitHub Pages sends cache-control: max-age=600), no revalidation;
+       * F5 / reload      -> browser ALWAYS revalidates the main document.
+
+     A client that navigates while holding pre-fix cached HTML still references an
+     old fingerprinted CSS file that the new build deleted -> 404 -> zero CSS.
+     This probe detects exactly that and re-injects the stable stylesheet, so the
+     page recovers on its own instead of requiring a manual reload. -->
+<script>
+(function () {
+  function heal() {
+    /* rel~="stylesheet" also matches PaperMod's rel="preload stylesheet". */
+    var main = document.querySelector('link[rel~="stylesheet"][href*="stylesheet"]');
+    if (!main) return;
+    /* link.sheet is null ONLY when the fetch failed (404 / blocked / offline).
+       We run on `load`, so "still downloading" cannot explain a null sheet. */
+    if (main.sheet) return;
+    if (document.getElementById('zx-css-heal')) return;
+    var fix = document.createElement('link');
+    fix.id = 'zx-css-heal';
+    fix.rel = 'stylesheet';
+    fix.href = '{{ "assets/css/stylesheet.css" | relURL }}?heal=' + Date.now();
+    document.head.appendChild(fix);
+  }
+  if (document.readyState === 'complete') heal();
+  else window.addEventListener('load', heal);
 })();
 </script>
