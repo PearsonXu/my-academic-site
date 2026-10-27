@@ -67,6 +67,14 @@ My research focuses on **computational and applied mathematics** — developing 
 <div class="zx-list-row">
   <span class="zx-year">2026</span>
   <div>
+    <h3>ACM/SIAM Student Chapter Seminar, University of South Carolina</h3>
+    <p class="zx-meta">Seminar Presentation — <i>Energy Stability and High-Order IMEX-RK Schemes for the Anisotropic Phase-Field Dendritic Growth Model</i> · Columbia, SC, October 2026.</p>
+  </div>
+</div>
+
+<div class="zx-list-row">
+  <span class="zx-year">2026</span>
+  <div>
     <h3>North American High Order Methods Conference (NAHOMCon)</h3>
     <p class="zx-meta">Contributed Talk — <i>Efficient, decoupled IMEX-RK schemes for the anisotropic phase-field dendritic growth model</i> · Santa Fe, NM, June 2026.</p>
   </div>
