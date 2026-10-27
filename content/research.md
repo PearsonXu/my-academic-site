@@ -24,7 +24,7 @@ My research focuses on **computational and applied mathematics** — developing 
   <span class="zx-year">2026</span>
   <div>
     <h3>Dihedral-Symmetry-Preserving and Energy-Stable Spectral Schemes for the Two-Dimensional Anisotropic Phase-Field Dendritic Growth Model</h3>
-    <p class="zx-meta"><b>Zhaoqing Xu</b> (co-first), Jianan Li, Jiang Yang, Xiaofeng Yang · Under review at <i>Computer Methods in Applied Mechanics and Engineering (CMAME)</i>, 2026.</p>
+    <p class="zx-meta"><b>Zhaoqing Xu</b> (co-first), Jianan Li, Jiang Yang, Xiaofeng Yang · Accepted by <i>Computer Methods in Applied Mechanics and Engineering (CMAME)</i>, 2026.</p>
   </div>
 </div>
 
@@ -32,7 +32,15 @@ My research focuses on **computational and applied mathematics** — developing 
   <span class="zx-year">2026</span>
   <div>
     <h3>Unconditional Original Energy-Dissipative and MBP-Preserving Second-Order IMEX-RK Schemes for the Allen–Cahn Equation with Degenerate Mobility</h3>
-    <p class="zx-meta">Jianan Li, Tao Tang, <b>Zhaoqing Xu</b>, Jiang Yang · Submitted to <i>SIAM Journal on Numerical Analysis (SINUM)</i>, 2026.</p>
+    <p class="zx-meta">Jianan Li, Tao Tang, <b>Zhaoqing Xu</b>, Jiang Yang · Submitted to <i>Journal of Scientific Computing (JSC)</i>, 2026.</p>
+  </div>
+</div>
+
+<div class="zx-list-row">
+  <span class="zx-year">2026</span>
+  <div>
+    <h3>A Kelvin-Voigt-Regularized Dynamic Phase-Field Fracture Model and a Linear Fully Decoupled Scheme with an Unconditional Global Energy Bound</h3>
+    <p class="zx-meta"><b>Zhaoqing Xu</b>, Xiaofeng Yang · Submitted to <i>Computer Methods in Applied Mechanics and Engineering (CMAME)</i>, 2026.</p>
   </div>
 </div>
 
